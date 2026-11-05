@@ -1,0 +1,46 @@
+<% if (tasks.length > 0) { %>
+    <ul class="task-list">
+      <% for (let task of tasks) { %>
+        <li class="<%= task.completed ? 'completed' : 'uncompleted' %>">
+          <i class="fa-solid fa-check"></i>
+          <div>
+            <strong>Name:</strong> <%= task.name %> </div>
+          <div>
+            <strong>Due date:</strong> <%= task.dueDate %> </div>
+          <div>
+            <strong>Tags:</strong> <%= task.tags %> </div>
+          <div>
+            <strong>Created At:</strong> <%= formatMongoDate(task.createdAt) %> 
+          </div>
+          <div>
+            <strong>Priority:</strong> <%= task.priority %> 
+          </div>
+          
+
+          <div class="action-buttons">
+                <a class="edit-button" href="/edit-task/<%= task._id %>">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                
+                <form action="/delete-task" method="POST">
+                    <button type="submit" class="delete-btn">
+                        
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    <input type="hidden" value="<%= task._id %>" name="taskId">
+                </form>
+
+                <form action="/mark-task-completed" method="POST">
+                    <button class="complete-btn">
+                        <i class="fa-solid fa-square-check"></i>
+                    </button>
+                    <input type="hidden" value="<%= task._id %>" name="taskId">
+                </form>
+          </div>
+          
+        </li>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <h2>No tasks!</h2>
+    <% } %>

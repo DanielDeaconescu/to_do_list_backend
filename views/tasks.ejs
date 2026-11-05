@@ -1,0 +1,28 @@
+<%- include('./includes/head.ejs') %>
+<div class="container">
+  <div class="centered">
+    <h2 class="mb-3">Add a new task on your TO DO List!</h2>
+    <%- include('./add-new-task.ejs') %>
+    <form action="/get-tasks-week" method="get">
+      <button type="submit">Get all tasks due this week</button>
+    </form>
+
+    <form action="/" method="get">
+      <button type="submit">Get all tasks</button>
+    </form>
+
+    <form action="/get-high-incomplete" method="get">
+      <button type="submit">Get all high priority incomplete tasks</button>
+    </form>
+
+    <!-- search by tag name -->
+    <form action="/search-tag" method="post">
+      <input type="text" name="tagSearch" />
+      <button type="submit">Search</button>
+    </form>
+
+    <%- include('./tasks-list.ejs') %>
+  </div>
+</div>
+
+<%- include('./includes/end.ejs') %>

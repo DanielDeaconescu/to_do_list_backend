@@ -1,0 +1,49 @@
+<button class="btn btn-primary add-task-btn">Add task</button>
+
+<!-- Modal -->
+<div class="modal-add-task-container no-display">
+  <div class="modal-add-task">
+    <button class="modal-close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <form action="/add-task" method="POST" class="add-new-task-form">
+      <h4>Fill in the details of the new task!</h4>
+      <div class="mb-3">
+        <label for="taskName" class="form-label">Task Name</label>
+        <input type="text" name="taskName" class="form-control" id="taskName" />
+      </div>
+
+      <div class="mb-3">
+        <label for="dueDate" class="form-label">Due Date</label>
+        <input type="date" name="dueDate" class="form-control" id="dueDate" />
+      </div>
+
+      <div class="mb-3">
+        <label for="tags" class="form-label">Tags</label>
+        <input
+          type="text"
+          name="tags"
+          class="form-control tags-input"
+          id="tags"
+        />
+        <!-- current tags -->
+        <div class="tag-list"></div>
+      </div>
+
+      <!-- task priority -->
+      <div class="mb-3">
+        <label for="priority" class="form-label">Task Priority</label>
+        <select class="form-select" name="priority" id="priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <!-- add subtasks -->
+
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+</div>

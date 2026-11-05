@@ -1,0 +1,30 @@
+{
+  "name": "to_do_list",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Daniel Deaconescu",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "bcryptjs": "^3.0.3",
+    "bootstrap": "^5.3.8",
+    "connect-mongodb-session": "^5.0.0",
+    "cors": "^2.8.6",
+    "csurf": "^1.11.0",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.2",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.10.3",
+    "nodemon": "^3.1.14",
+    "resend": "^6.32.1",
+    "socket.io": "^4.8.4"
+  }
+}

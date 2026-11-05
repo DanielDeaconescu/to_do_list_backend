@@ -1,0 +1,43 @@
+<%- include('./includes/head.ejs') %>
+
+<div class="container">
+  <form action="/edit-task" method="POST" class="edit-task-form">
+    <div class="mb-3">
+      <label for="taskName" class="form-label">Task Name</label>
+      <input
+        type="text"
+        name="taskName"
+        value="<%= task.name %>"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date</label>
+      <input
+        type="date"
+        name="dueDate"
+        value="<%= task.dueDate %>"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="tags" class="form-label">Tags</label>
+      <% for (let tag of tags) { %>
+        <input
+        type="text"
+        name="tags"
+        value="<%= tag %>"
+        class="form-control"
+      />
+      <% } %>
+      
+    </div>
+
+    <input type="hidden" value="<%= task._id %>" name="taskId" />
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+</div>
+
+<%- include('./includes/end.ejs') %>
