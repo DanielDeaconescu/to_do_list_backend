@@ -67,7 +67,7 @@ app.use((req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 app.use(csrfProtection);
 
 app.get("/csrf", (req, res, next) => {
@@ -86,7 +86,7 @@ app.use(routes);
 mongoose
   .connect(MONGODB_URI)
   .then((result) => {
-    app.listen(process.env.PORT);
+    app.listen(process.env.PORT || 8000);
 
     // const io = require("./socket").init(server);
     // io.on("connection", (socket) => {
