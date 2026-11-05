@@ -67,7 +67,12 @@ app.use((req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-app.use(cors({ origin: "*", credentials: true }));
+app.use(
+  cors({
+    origin: "https://to-do-list-frontend-nu-two.vercel.app",
+    credentials: true,
+  }),
+);
 app.use(csrfProtection);
 
 app.get("/csrf", (req, res, next) => {
