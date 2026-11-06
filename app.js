@@ -73,10 +73,16 @@ app.use(
     credentials: true,
   }),
 );
+
 app.use(csrfProtection);
 
 app.get("/csrf", (req, res, next) => {
-  return res.json({ csrfToken: req.csrfToken() });
+  req.session.save((err) => {
+    if (err) {
+      return next(err);
+    }
+    return res.json({ csrfToken: req.csrfToken() });
+  });
 });
 
 app.use((error, req, res, next) => {
