@@ -1,3 +1,4 @@
+console.log("Starting app...");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -93,6 +94,8 @@ app.use((error, req, res, next) => {
 });
 
 app.use(routes);
+
+console.log("Comment before MONGODB_URI...");
 
 mongoose
   .connect(MONGODB_URI)
