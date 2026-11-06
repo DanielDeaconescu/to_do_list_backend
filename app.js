@@ -42,7 +42,7 @@ app.use(
   express.static(path.join(__dirname, "node_modules/bootstrap/dist")),
 );
 
-app.set("trust proxy", 1);
+// app.set("trust proxy", 1);
 
 app.use(
   session({
